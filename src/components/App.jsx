@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
-import { nanoid } from 'nanoid';
+
 import styles from './ContactForm/ContactForm.module.css';
 
 import { addContact } from '../components/redux/store';
@@ -18,7 +18,7 @@ const App = () => {
     if (storedContacts && storedContacts.length > 0) {
       dispatch(addContact(storedContacts));
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
